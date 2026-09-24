@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #FAF8F5;
+  color: #231D18;
+  overflow-x: hidden;
+}
+
+.eyebrow {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+@keyframes maison-marquee {
+  to {
+    transform: translate(calc(-50% - 0.375rem));
+  }
+}
+
+.lookbook-track {
+  animation: 55s linear infinite maison-marquee;
+}
+
+.lookbook-track:hover,
+.lookbook-track:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes maison-panel {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-panel {
+  animation: 0.45s cubic-bezier(0.22, 1, 0.36, 1) both maison-panel;
+}
+
+@keyframes maison-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4), 0 10px 25px rgba(35, 29, 24, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(197, 168, 128, 0.15), 0 14px 28px rgba(35, 29, 24, 0.28);
+  }
+}
+
+.concierge-pulse {
+  animation: 3s ease-in-out infinite maison-pulse;
+}
+
+/* Custom smooth transitions */
+.transition-smooth {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-slow {
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9C2BA;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9B7C55;
+}
+
+/* Fluid entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .lookbook-track,
+  .animate-panel,
+  .concierge-pulse,
+  .reveal-on-scroll {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
