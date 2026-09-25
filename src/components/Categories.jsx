@@ -2,6 +2,15 @@ import { ArrowUpRight } from 'lucide-react';
 import { CATEGORIES } from '../data';
 
 export function Categories({ onSelect }) {
+  const handleClick = (e, slug) => {
+    e.preventDefault();
+    onSelect(slug);
+    const target = document.getElementById('colecoes');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="px-5 md:px-10 lg:px-16 pb-24 md:pb-40 bg-[#FAF8F5]" aria-labelledby="categories-heading">
       <div className="max-w-[1600px] mx-auto">
@@ -22,7 +31,7 @@ export function Categories({ onSelect }) {
             <a
               key={cat.slug}
               href="#colecoes"
-              onClick={() => onSelect(cat.slug)}
+              onClick={(e) => handleClick(e, cat.slug)}
               data-cursor="Explorar"
               className={`group block cursor-pointer reveal-on-scroll ${
                 idx === 1 ? 'md:pt-20' : ''

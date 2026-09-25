@@ -7,12 +7,12 @@ export function RitualSection() {
         {/* Left Column Image with subtle slow zoom */}
         <div className="relative min-h-[480px] lg:min-h-[850px] overflow-hidden group">
           <img
-            src={IMAGES.fig}
-            alt="Vela artesanal da Célli Maison, parte do ritual de casa"
+            src={IMAGES.ritualBath}
+            alt="Ritual de banho com velas artesanais e óleos botânicos Célli Maison"
             loading="lazy"
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/25" />
         </div>
 
         {/* Right Column Brand Manifesto & Pillars */}

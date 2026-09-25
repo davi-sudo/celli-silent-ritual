@@ -11,16 +11,26 @@ export function useScrollReveal() {
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.05,
+        rootMargin: '50px 0px 50px 0px',
       }
     );
 
-    const elements = document.querySelectorAll('.reveal-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    const observeAll = () => {
+      document.querySelectorAll('.reveal-on-scroll:not(.is-visible)').forEach((el) => {
+        observer.observe(el);
+      });
+    };
+
+    observeAll();
+
+    // Observe any dynamic additions to the DOM
+    const mutObserver = new MutationObserver(observeAll);
+    mutObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+      mutObserver.disconnect();
     };
   }, []);
 }

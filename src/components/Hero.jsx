@@ -36,33 +36,27 @@ export function Hero() {
     <section id="inicio" className="relative bg-[#FAF8F5] pb-10 md:pb-20 overflow-hidden">
       {/* Container with dynamic scroll scale and rounded bottom corners */}
       <div
-        className="h-[94svh] min-h-[640px] relative overflow-hidden bg-[#2a221b] transition-transform duration-75 will-change-transform"
+        className="h-[94svh] min-h-[640px] relative overflow-hidden bg-[#231D18] transition-transform duration-75 will-change-transform"
         style={{
           transform: `scale(${1 - scrollProgress * 0.055})`,
           transformOrigin: 'center top',
           borderRadius: `0 0 ${scrollProgress * 26}px ${scrollProgress * 26}px`,
         }}
       >
-        {/* Responsive Picture with enhanced desktop luxury editorial image */}
-        <picture className="absolute inset-0 w-full h-full">
-          {/* Enhanced high-resolution widescreen editorial shot for desktop */}
-          <source
-            media="(min-width: 1024px)"
-            srcSet={IMAGES.heroDesktop}
-          />
-          {/* Editorial portrait shot for mobile and tablets */}
+        {/* Authentic Célli Maison signature hero image (Model in champagne silk robe on sofa) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
           <img
-            src={IMAGES.heroMobile}
-            alt="Robe de cetim da Célli Maison em composição editorial de alta costura"
-            className="w-full h-full object-cover object-center lg:object-[center_35%] scale-100 transition-transform duration-[20000ms] ease-out hover:scale-105"
+            src={IMAGES.heroModel}
+            alt="Robe de cetim e seda da Célli Maison em composição editorial"
+            className="w-full h-full object-cover object-[center_12%] md:object-[center_10%] lg:object-[center_12%] transition-transform duration-1000 ease-out hover:scale-105"
             style={{
-              transform: `scale(${1.02 + scrollProgress * 0.06})`,
+              transform: `scale(${1.02 + scrollProgress * 0.05})`,
             }}
           />
-        </picture>
+        </div>
 
         {/* Sophisticated dual-layer vignette and atmospheric lighting */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#17100b]/75 via-[#17100b]/35 to-[#17100b]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#17100b]/75 via-[#17100b]/30 to-[#17100b]/75" />
         <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#17100b]/70 via-[#17100b]/20 to-transparent" />
 
         {/* Hero Content */}
