@@ -61,7 +61,7 @@ export function Catalog({ category, setCategory, mood, setMood, onOpen }) {
   return (
     <section
       id="colecoes"
-      className="bg-[#F2EFEA] px-5 md:px-10 lg:px-16 py-20 md:py-32 scroll-mt-4 transition-colors duration-500"
+      className="bg-[#F2EFEA] px-5 md:px-10 lg:px-16 py-20 md:py-32 scroll-mt-20 transition-colors duration-500"
       aria-labelledby="catalog-heading"
     >
       <div className="max-w-[1600px] mx-auto">

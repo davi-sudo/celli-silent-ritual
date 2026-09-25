@@ -12,6 +12,8 @@ body {
   background-color: #FAF8F5;
   color: #231D18;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .eyebrow {

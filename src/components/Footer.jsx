@@ -32,7 +32,7 @@ export function Footer() {
           </div>
 
           {/* Right Column Links */}
-          <div className="md:pt-12 grid grid-cols-2 gap-8">
+          <div className="md:pt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="eyebrow text-[#9B7C55] mb-5">Explore</h3>
               <nav className="flex flex-col items-start gap-4 text-sm font-light">

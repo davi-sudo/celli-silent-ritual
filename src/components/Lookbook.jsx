@@ -5,7 +5,7 @@ export function Lookbook() {
   const repeatedImages = [...LOOKBOOK_IMAGES, ...LOOKBOOK_IMAGES];
 
   return (
-    <section id="lookbook" className="py-24 md:py-36 bg-[#FAF8F5] overflow-hidden scroll-mt-4">
+    <section id="lookbook" className="py-24 md:py-36 bg-[#FAF8F5] overflow-hidden scroll-mt-20">
       {/* Header */}
       <div className="px-5 md:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12 reveal-on-scroll">
         <div>
@@ -36,7 +36,7 @@ export function Lookbook() {
               rel="noopener noreferrer"
               aria-label="Ver Célli Maison no Instagram"
               data-cursor="Instagram"
-              className="group block w-[260px] md:w-[330px] aspect-[0.75] bg-[#EAE6E0] overflow-hidden shrink-0 shadow-sm transition-transform duration-500 hover:scale-[1.02]"
+              className="group block min-w-[240px] w-[240px] md:w-[330px] aspect-[0.75] bg-[#EAE6E0] overflow-hidden shrink-0 shadow-sm transition-transform duration-500 hover:scale-[1.02]"
             >
               <img
                 src={src}

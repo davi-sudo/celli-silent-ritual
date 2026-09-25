@@ -8,7 +8,7 @@ export function ConciergeButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Conversar com a Célli Maison pelo WhatsApp"
-      className="fixed z-40 bottom-5 right-5 md:bottom-8 md:right-8 flex items-center gap-3 min-h-14 bg-[#231D18] text-white rounded-full pl-5 pr-4 shadow-xl concierge-pulse hover:bg-[#9B7C55] hover:scale-105 transition-all duration-300 group cursor-pointer"
+        className="fixed z-40 bottom-5 right-5 md:bottom-8 md:right-8 mb-[env(safe-area-inset-bottom)] flex items-center gap-3 min-h-14 bg-[#231D18] text-white rounded-full pl-5 pr-4 shadow-xl concierge-pulse hover:bg-[#9B7C55] hover:scale-105 transition-all duration-300 group cursor-pointer"
     >
       <span className="hidden sm:block text-[11px] uppercase tracking-[.18em] font-medium">
         WhatsApp

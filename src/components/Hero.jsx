@@ -36,7 +36,7 @@ export function Hero() {
     <section id="inicio" className="relative bg-[#FAF8F5] pb-10 md:pb-20 overflow-hidden">
       {/* Container with dynamic scroll scale and rounded bottom corners */}
       <div
-        className="h-[94svh] min-h-[640px] relative overflow-hidden bg-[#231D18] transition-transform duration-75 will-change-transform"
+        className="h-[94svh] min-h-0 sm:min-h-[640px] relative overflow-hidden bg-[#231D18] transition-transform duration-75 will-change-transform"
         style={{
           transform: `scale(${1 - scrollProgress * 0.055})`,
           transformOrigin: 'center top',
@@ -60,7 +60,7 @@ export function Hero() {
         <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#17100b]/70 via-[#17100b]/20 to-transparent" />
 
         {/* Hero Content */}
-        <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-20 text-white z-10">
+        <div className="relative h-full flex flex-col justify-center items-center text-center px-6 pt-10 md:pt-20 text-white z-10">
           {/* Eyebrow */}
           <div className="animate-fade-in opacity-0" style={{ animationDelay: '150ms', animationFillMode: 'forwards' }}>
             <p className="eyebrow text-[#EAD9C2] tracking-[.25em] drop-shadow-sm">
