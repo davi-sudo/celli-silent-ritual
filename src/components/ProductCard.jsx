@@ -76,7 +76,11 @@ export function ProductCard({ product, onOpen, isOffset = false }) {
           </span>
         )}
 
-        <span className="absolute right-3 bottom-3 bg-[#FAF8F5] text-[#231D18] w-10 h-10 flex items-center justify-center rounded-full translate-y-16 group-hover:translate-y-0 transition-transform duration-300 ease-out shadow-md group-hover:bg-[#231D18] group-hover:text-white">
+        <span
+          className={`absolute right-3 bottom-3 bg-[#FAF8F5] text-[#231D18] w-10 h-10 flex items-center justify-center rounded-full transition-transform duration-300 ease-out shadow-md group-hover:bg-[#231D18] group-hover:text-white ${
+            isTouchDevice ? 'translate-y-0' : 'translate-y-16 group-hover:translate-y-0'
+          }`}
+        >
           <ArrowUpRight size={16} />
         </span>
       </div>

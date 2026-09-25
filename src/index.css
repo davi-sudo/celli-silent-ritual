@@ -15,14 +15,13 @@ body {
   background-color: #FAF8F5;
   color: #231D18;
   overflow-x: hidden;
-  padding-top: env(safe-area-inset-top);
+  padding-top: calc(64px + env(safe-area-inset-top));
   padding-bottom: env(safe-area-inset-bottom);
-  padding-top: 64px;
 }
 
 @media (min-width: 768px) {
   body {
-    padding-top: 80px;
+    padding-top: calc(80px + env(safe-area-inset-top));
   }
 }
 

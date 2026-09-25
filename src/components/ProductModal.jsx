@@ -61,7 +61,7 @@ export function ProductModal({ product, onClose, onAdd }) {
         <div className="flex-1 overflow-y-auto p-4 md:p-6 md:grid md:grid-cols-[0.95fr_1fr] md:gap-8 md:gap-10 flex flex-col">
           <div className="md:sticky md:top-20 md:self-start mb-4 md:mb-0">
             <div className="aspect-[0.85] bg-[#EAE6E0] overflow-hidden shadow-sm rounded-sm">
-              <Carousel items={product.images} alt={product.name} />
+              <Carousel items={product.images} alt={product.name} fill />
             </div>
           </div>
 

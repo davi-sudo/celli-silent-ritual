@@ -19,7 +19,7 @@ export function RitualSection() {
         <div className="px-7 md:px-16 lg:px-20 py-20 md:py-28 flex flex-col justify-center reveal-on-scroll">
           <p className="eyebrow text-[#C5A880]">O que nos move</p>
 
-          <h2 className="font-display text-[clamp(3.5rem,6vw,7rem)] leading-[.95] mt-7 font-light">
+          <h2 className="font-display text-[clamp(2.1rem,9vw,3.5rem)] md:text-[clamp(3.5rem,6vw,7rem)] leading-[.95] mt-7 font-light">
             A beleza de
             <br />
             <em className="font-light italic text-[#EAD9C2]">estar presente.</em>

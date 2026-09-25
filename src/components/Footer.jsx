@@ -12,7 +12,7 @@ export function Footer() {
           {/* Left Column */}
           <div>
             <p className="eyebrow text-[#9B7C55]">Uma conversa, um começo</p>
-            <h2 className="font-display text-[clamp(3.5rem,7vw,7.8rem)] leading-[.94] mt-6 max-w-3xl font-light">
+            <h2 className="font-display text-[clamp(2.1rem,10vw,3.5rem)] md:text-[clamp(3.5rem,7vw,7.8rem)] leading-[.94] mt-6 max-w-3xl font-light">
               Vamos criar seu
               <br />
               <em className="font-light italic text-[#7C6751]">próximo ritual?</em>
