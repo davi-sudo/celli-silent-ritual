@@ -37,9 +37,8 @@ export const IMAGES = {
   diffuser: '/images/diffuser.jpg',
   no1: '/images/no1.jpg',
   rose: '/images/rose.jpg',
-  gift: '/images/gift.jpg',
-  luxurygold: '/images/luxurygold.jpg',
-  logo: '/images/logo.png',
+   gift: '/images/gift.jpg',
+   logo: '/images/logo.png',
 };
 
 export const CATEGORIES = [
@@ -112,7 +111,7 @@ export const PRODUCTS = [
     sizes: ['P', 'M', 'G'],
     composition: 'Cetim de seda fluido com decote degagê',
     description: 'Camisola slip longa em seda marmorizada verde-água, decote degagê fluido e costas com caimento impecável. Uma peça para sonhar acordada.',
-    images: [IMAGES.slipFirenze, IMAGES.heroModel],
+    images: [IMAGES.slipFirenze, IMAGES.polkaSlip],
   },
   {
     id: 'farfalla',
@@ -125,7 +124,7 @@ export const PRODUCTS = [
     sizes: ['P', 'M', 'G', 'GG'],
     composition: 'Seda toque de cetim com estampa botânica',
     description: 'Camisa manga curta e shorts em azul-celeste com estampa suave de borboletas rosas em aquarela. Toque sedoso e modelagem relaxada.',
-    images: [IMAGES.butterflyPajama],
+    images: [IMAGES.butterflyPajama, IMAGES.maternidadePink],
   },
   {
     id: 'fuchsia-lace',
@@ -190,7 +189,7 @@ export const PRODUCTS = [
     sizes: ['P', 'M', 'G', 'GG'],
     composition: '100% seda pura com acabamento em viés',
     description: 'Conjunto de camisa e calça em seda pura, caimento fluido e acabamento em viés. Para noites que pedem delicadeza e luxo silencioso.',
-    images: [IMAGES.heroModel, IMAGES.silk, IMAGES.satin],
+    images: [IMAGES.silk, IMAGES.satin, IMAGES.lace],
   },
   {
     id: 'sabbia-robe',
@@ -217,7 +216,7 @@ export const PRODUCTS = [
     composition: 'Cera vegetal · 250g · 50h de queima',
     notes: ['Rosa', 'Peônia', 'Almíscar branco'],
     description: 'Vela italiana da linha Romantica, com cera vegetal e fragrância floral nobre de rosa toscana e peônia.',
-    images: [IMAGES.candleLuxury, IMAGES.nestiDanteSoaps],
+    images: [IMAGES.rose, IMAGES.nestiDanteSoaps],
   },
   {
     id: 'fico',
@@ -231,7 +230,7 @@ export const PRODUCTS = [
     composition: 'Cera vegetal · 220g · 45h de queima',
     notes: ['Figo', 'Folhas verdes', 'Cedro'],
     description: "Cera vegetal com pavio de algodão puro e fragrância autêntica de figo mediterrâneo, folhas verdes e madeira clara toscana.",
-    images: [IMAGES.candleFico, IMAGES.candleLuxury],
+    images: [IMAGES.candleFico, IMAGES.fig],
   },
   {
     id: 'sabbia-vela',
@@ -245,7 +244,7 @@ export const PRODUCTS = [
     composition: 'Cera vegetal · 180g · 38h de queima',
     notes: ['Âmbar', 'Baunilha', 'Sândalo'],
     description: 'Fragrância âmbar e baunilha em recipiente de vidro âmbar artesanal, perfeita para acender nas primeiras horas do dia.',
-    images: [IMAGES.candleLuxury],
+    images: [IMAGES.candle],
   },
   {
     id: 'toscana',
@@ -259,7 +258,7 @@ export const PRODUCTS = [
     composition: '250ml · varetas de fibra natural · dura até 3 meses',
     notes: ['Bergamota', 'Alecrim', 'Almíscar branco'],
     description: 'Difusor de varetas com essência botânica italiana de ervas mediterrâneas, bergamota fresca e madeiras nobres.',
-    images: [IMAGES.diffuserToscana, IMAGES.no1],
+    images: [IMAGES.diffuserToscana, IMAGES.diffuser],
   },
   {
     id: 'luxury-gold',
@@ -301,7 +300,7 @@ export const PRODUCTS = [
     composition: 'Eau de Parfum · 50ml',
     notes: ['Pimenta rosa', 'Rosa damascena', 'Almíscar'],
     description: 'Rosa damascena sobre pimenta rosa e almíscar. Intenso, feminino e memorável.',
-    images: [IMAGES.perfumeGold],
+    images: [IMAGES.rose],
   },
   {
     id: 'sabonete',
@@ -358,7 +357,7 @@ export const LOOKBOOK_IMAGES = [
   IMAGES.fuchsiaLace,
   IMAGES.polkaSlip,
   IMAGES.maternidadePink,
-  IMAGES.candleLuxury,
+  IMAGES.rose,
   IMAGES.perfumeGold,
   IMAGES.nestiDanteSoaps,
   IMAGES.candleFico,
@@ -366,6 +365,8 @@ export const LOOKBOOK_IMAGES = [
   IMAGES.ritualBath,
   IMAGES.respira,
   IMAGES.hearts,
+  IMAGES.editorial1,
+  IMAGES.editorial2,
 ];
 
 export const GIFT_THRESHOLD = 790;

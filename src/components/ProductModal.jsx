@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, ShoppingBag } from 'lucide-react';
 import { formatPrice } from '../data';
+import { Carousel } from './Carousel';
 
 export function ProductModal({ product, onClose, onAdd }) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
@@ -66,35 +67,9 @@ export function ProductModal({ product, onClose, onAdd }) {
         <div className="grid md:grid-cols-[0.95fr_1fr] gap-8 md:gap-10 p-6 md:p-9 flex-1">
           {/* Gallery Column */}
           <div className="md:sticky md:top-20 md:self-start">
-            <div className="aspect-[0.85] bg-[#EAE6E0] overflow-hidden shadow-sm">
-              <img
-                src={product.images[selectedImageIndex]}
-                alt={`${product.name}, foto ${selectedImageIndex + 1}`}
-                className="w-full h-full object-cover transition-all duration-500"
-              />
+            <div className="aspect-[0.85] bg-[#EAE6E0] overflow-hidden shadow-sm rounded-sm mb-3">
+              <Carousel items={product.images} alt={product.name} />
             </div>
-
-            {/* Thumbnail selector */}
-            {product.images.length > 1 && (
-              <div className="flex gap-2.5 pt-3">
-                {product.images.map((img, idx) => (
-                  <button
-                    key={img}
-                    type="button"
-                    onClick={() => setSelectedImageIndex(idx)}
-                    aria-label={`Ver imagem ${idx + 1} de ${product.name}`}
-                    aria-pressed={selectedImageIndex === idx}
-                    className={`w-16 h-20 overflow-hidden border-2 transition-all cursor-pointer ${
-                      selectedImageIndex === idx
-                        ? 'border-[#9B7C55] scale-100 shadow-sm'
-                        : 'border-transparent opacity-70 hover:opacity-100'
-                    }`}
-                  >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Details Column */}

@@ -48,9 +48,9 @@ export function Hero() {
           <img
             src={IMAGES.heroModel}
             alt="Robe de cetim e seda da Célli Maison em composição editorial"
-            className="w-full h-full object-cover object-[center_12%] md:object-[center_10%] lg:object-[center_12%] transition-transform duration-1000 ease-out hover:scale-105"
+            className="w-full h-full object-cover object-[center_12%] md:object-[center_10%] lg:object-[center_12%] transition-transform duration-1000 ease-out hover:scale-105 min-w-full"
             style={{
-              transform: `scale(${1.02 + scrollProgress * 0.05})`,
+              transform: `scale(${1 + scrollProgress * 0.02})`,
             }}
           />
         </div>
