@@ -9,6 +9,13 @@ export function Hero() {
   const animFrame = useRef(null);
 
   useEffect(() => {
+    // The scroll-linked zoom is a subtle desktop flourish. On touch devices
+    // it costs a rAF loop running forever during scroll for an effect users
+    // barely notice — skip it entirely to keep mobile scrolling smooth.
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isTouch || reduceMotion) return;
+
     const handleScroll = () => {
       targetScroll.current = Math.min(
         window.scrollY / Math.max(window.innerHeight, 1),
@@ -21,12 +28,28 @@ export function Hero() {
     const smoothLoop = () => {
       currentScroll.current += (targetScroll.current - currentScroll.current) * 0.12;
       setScrollProgress(currentScroll.current);
-      animFrame.current = requestAnimationFrame(smoothLoop);
+
+      // Stop the loop once it has settled instead of running forever;
+      // the scroll listener restarts it whenever the target moves again.
+      if (Math.abs(targetScroll.current - currentScroll.current) > 0.001) {
+        animFrame.current = requestAnimationFrame(smoothLoop);
+      } else {
+        animFrame.current = null;
+      }
     };
+
+    const ensureLoopRunning = () => {
+      if (animFrame.current === null) {
+        animFrame.current = requestAnimationFrame(smoothLoop);
+      }
+    };
+
+    window.addEventListener('scroll', ensureLoopRunning, { passive: true });
     animFrame.current = requestAnimationFrame(smoothLoop);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', ensureLoopRunning);
       if (animFrame.current) cancelAnimationFrame(animFrame.current);
     };
   }, []);

@@ -56,6 +56,8 @@ export function ProductCard({ product, onOpen, isOffset = false }) {
         <img
           src={product.images[0]}
           alt={product.name}
+          loading="lazy"
+          decoding="async"
           onLoad={() => setImageLoaded(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
@@ -66,6 +68,8 @@ export function ProductCard({ product, onOpen, isOffset = false }) {
           <img
             src={product.images[1]}
             alt={`Outro ângulo de ${product.name}`}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out pointer-events-none"
           />
         )}
