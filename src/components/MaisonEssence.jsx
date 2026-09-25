@@ -1,6 +1,6 @@
 export function MaisonEssence() {
   return (
-    <section id="maison" className="mx-auto max-w-4xl text-center px-6 pt-24 md:pt-36 pb-14 md:pb-24">
+    <section id="maison" className="mx-auto max-w-4xl text-center px-6 pt-24 md:pt-36 pb-14 md:pb-24 scroll-mt-16 md:scroll-mt-20">
       <div className="reveal-on-scroll">
         <p className="eyebrow text-[#9B7C55]">A essência Célli</p>
         <h2 className="font-display text-[clamp(2.6rem,5.5vw,5.6rem)] leading-[1.05] tracking-[-.025em] mt-7">

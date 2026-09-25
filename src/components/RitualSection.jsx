@@ -2,7 +2,7 @@ import { IMAGES, PILLARS } from '../data';
 
 export function RitualSection() {
   return (
-    <section id="ritual" className="bg-[#231D18] text-[#FAF8F5] overflow-hidden scroll-mt-20">
+    <section id="ritual" className="bg-[#231D18] text-[#FAF8F5] overflow-hidden scroll-mt-16 md:scroll-mt-20">
       <div className="grid lg:grid-cols-2">
         {/* Left Column Image with subtle slow zoom */}
         <div className="relative min-h-[480px] lg:min-h-[850px] overflow-hidden group">

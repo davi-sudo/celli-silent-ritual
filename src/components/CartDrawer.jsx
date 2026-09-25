@@ -32,8 +32,7 @@ export function CartDrawer({ items, onClose, onQuantity }) {
   const giftPercentage = Math.min(100, Math.round((total / GIFT_THRESHOLD) * 100));
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-50 flex items-end" role="presentation">
       <button
         type="button"
         className="absolute inset-0 w-full h-full bg-[#231D18]/60 backdrop-blur-sm cursor-default transition-opacity"
@@ -41,19 +40,17 @@ export function CartDrawer({ items, onClose, onQuantity }) {
         onClick={onClose}
       />
 
-      {/* Drawer Panel */}
       <aside
         role="dialog"
         aria-modal="true"
         aria-label="Sua sacola"
-        className="relative z-10 h-full w-full max-w-[500px] bg-[#FAF8F5] flex flex-col shadow-2xl animate-panel"
+        className="relative z-10 w-full max-h-[90vh] md:max-h-full bg-[#FAF8F5] flex flex-col shadow-2xl animate-panel md:max-w-[500px]"
       >
-        {/* Header */}
-        <header className="flex items-center justify-between px-6 md:px-9 h-20 border-b border-[#DFDCDA]">
+        <header className="flex items-center justify-between px-4 md:px-6 h-16 border-b border-[#DFDCDA] sticky top-0 bg-[#FAF8F5]/95 backdrop-blur-md z-10">
           <div>
             <p className="eyebrow text-[#9B7C55]">Sua seleção</p>
-            <h2 className="font-display text-3xl font-light text-[#231D18]">
-              A sacola <span className="text-xl font-mono text-[#71665D]">({totalCount})</span>
+            <h2 className="font-display text-2xl md:text-3xl font-light text-[#231D18]">
+              A sacola <span className="text-lg md:text-xl font-mono text-[#71665D]">({totalCount})</span>
             </h2>
           </div>
           <button
@@ -67,8 +64,7 @@ export function CartDrawer({ items, onClose, onQuantity }) {
           </button>
         </header>
 
-        {/* Free gift progress bar */}
-        <div className="px-6 md:px-9 py-6 border-b border-[#DFDCDA] bg-white/40">
+        <div className="px-4 md:px-6 py-4 border-b border-[#DFDCDA] bg-white/40 sticky top-16 z-10 bg-[#FAF8F5]/95 backdrop-blur-md">
           <div className="flex justify-between text-xs gap-3">
             <span className="text-[#231D18] font-medium">
               {total >= GIFT_THRESHOLD
@@ -88,11 +84,10 @@ export function CartDrawer({ items, onClose, onQuantity }) {
           </p>
         </div>
 
-        {/* Items List */}
-        <div className="flex-1 overflow-y-auto px-6 md:px-9">
+        <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-20">
           {items.length === 0 ? (
             <div className="h-full flex flex-col justify-center items-center text-center py-16">
-              <h3 className="font-display text-4xl text-[#231D18] font-light">
+              <h3 className="font-display text-3xl md:text-4xl text-[#231D18] font-light">
                 Seu ritual começa aqui.
               </h3>
               <p className="text-sm text-[#6C6259] mt-3 font-light">
@@ -110,55 +105,52 @@ export function CartDrawer({ items, onClose, onQuantity }) {
             items.map(({ product, size, quantity }) => (
               <div
                 key={`${product.id}:${size}`}
-                className="py-6 border-b border-[#DFDCDA] flex gap-4 animate-fade-in"
+                className="py-4 border-b border-[#DFDCDA] flex gap-3 animate-fade-in"
               >
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="w-24 h-28 object-cover bg-[#DFDCDA] shrink-0 shadow-sm"
+                  className="w-20 h-24 md:w-24 md:h-28 object-cover bg-[#DFDCDA] shrink-0 shadow-sm rounded-sm"
                 />
                 <div className="flex-1 min-w-0">
                   <p className="eyebrow text-[#9B7C55]">{product.mood}</p>
-                  <h3 className="font-display text-2xl leading-tight mt-1 text-[#231D18] truncate">
+                  <h3 className="font-display text-xl md:text-2xl leading-tight mt-1 text-[#231D18] truncate">
                     {product.name}
                   </h3>
                   <p className="text-xs text-[#756B63] mt-1 font-mono uppercase">
                     Tam/Formato: {size}
                   </p>
 
-                  <div className="flex justify-between items-end gap-2 mt-4">
-                    {/* Quantity Selector */}
-                    <div className="flex items-center border border-[#DFDCDA] bg-white">
+                  <div className="flex justify-between items-end gap-2 mt-3">
+                    <div className="flex items-center border border-[#DFDCDA] bg-white rounded-sm overflow-hidden">
                       <button
                         type="button"
                         onClick={() => onQuantity(product.id, size, quantity - 1)}
                         aria-label={`Diminuir quantidade de ${product.name}`}
-                        className="w-9 h-10 flex justify-center items-center text-[#231D18] hover:bg-[#F2EFEA] transition-colors cursor-pointer"
+                        className="w-10 h-11 flex justify-center items-center text-[#231D18] hover:bg-[#F2EFEA] transition-colors cursor-pointer"
                       >
                         <Minus size={13} />
                       </button>
-                      <span className="w-8 text-center text-sm font-mono">{quantity}</span>
+                      <span className="w-10 text-center text-sm font-mono border-x border-[#DFDCDA]">{quantity}</span>
                       <button
                         type="button"
                         onClick={() => onQuantity(product.id, size, quantity + 1)}
                         aria-label={`Aumentar quantidade de ${product.name}`}
-                        className="w-9 h-10 flex justify-center items-center text-[#231D18] hover:bg-[#F2EFEA] transition-colors cursor-pointer"
+                        className="w-10 h-11 flex justify-center items-center text-[#231D18] hover:bg-[#F2EFEA] transition-colors cursor-pointer"
                       >
                         <Plus size={13} />
                       </button>
                     </div>
 
-                    {/* Subtotal */}
                     <span className="text-sm whitespace-nowrap font-mono font-medium text-[#231D18]">
                       R$ {formatPrice(product.price * quantity)}
                     </span>
                   </div>
 
-                  {/* Remove link */}
                   <button
                     type="button"
                     onClick={() => onQuantity(product.id, size, 0)}
-                    className="mt-3 text-xs text-[#71665D] hover:text-red-700 underline underline-offset-4 inline-flex gap-1.5 items-center transition-colors cursor-pointer"
+                    className="mt-2 text-xs text-[#71665D] hover:text-red-700 underline underline-offset-4 inline-flex gap-1.5 items-center transition-colors cursor-pointer"
                   >
                     <Trash2 size={12} />
                     Remover
@@ -169,18 +161,17 @@ export function CartDrawer({ items, onClose, onQuantity }) {
           )}
         </div>
 
-        {/* Footer Checkout info */}
         {items.length > 0 && (
-          <div className="px-6 md:px-9 py-6 border-t border-[#DFDCDA] bg-[#FAF8F5] shadow-lg">
+          <div className="px-4 md:px-6 py-4 border-t border-[#DFDCDA] bg-[#FAF8F5] shadow-lg sticky bottom-0 z-10">
             <div className="flex justify-between items-baseline mb-2">
-              <span className="font-display text-2xl font-light text-[#231D18]">
+              <span className="font-display text-xl md:text-2xl font-light text-[#231D18]">
                 Total estimado
               </span>
-              <span className="font-mono text-xl font-semibold text-[#6C5033]">
+              <span className="font-mono text-lg md:text-xl font-semibold text-[#6C5033]">
                 R$ {formatPrice(total)}
               </span>
             </div>
-            <p className="text-xs text-[#766C63] mb-5 font-light">
+            <p className="text-xs text-[#766C63] mb-4 font-light">
               Entrega e pagamento combinados diretamente com a nossa equipe.
             </p>
             <a

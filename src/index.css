@@ -17,6 +17,13 @@ body {
   overflow-x: hidden;
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  padding-top: 64px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
 }
 
 .eyebrow {

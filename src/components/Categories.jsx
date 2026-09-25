@@ -12,7 +12,7 @@ export function Categories({ onSelect }) {
   };
 
   return (
-    <section className="px-5 md:px-10 lg:px-16 pb-24 md:pb-40 bg-[#FAF8F5]" aria-labelledby="categories-heading">
+    <section id="categorias" className="px-5 md:px-10 lg:px-16 pb-24 md:pb-40 bg-[#FAF8F5] scroll-mt-16 md:scroll-mt-20" aria-labelledby="categories-heading">
       <div className="max-w-[1600px] mx-auto">
         {/* Header row */}
         <div className="flex justify-between items-end border-b border-[#DFDCDA] pb-6 mb-9 reveal-on-scroll">

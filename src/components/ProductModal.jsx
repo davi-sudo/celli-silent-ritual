@@ -5,13 +5,11 @@ import { Carousel } from './Carousel';
 
 export function ProductModal({ product, onClose, onAdd }) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [hoveredNoteIndex, setHoveredNoteIndex] = useState(-1);
   const closeButtonRef = useRef(null);
 
   useEffect(() => {
     setSelectedSize(product.sizes[0]);
-    setSelectedImageIndex(0);
     closeButtonRef.current?.focus();
 
     const handleKeyDown = (e) => {
@@ -31,8 +29,7 @@ export function ProductModal({ product, onClose, onAdd }) {
   const noteColors = ['#F2E8C9', '#EADCD5', '#E4D8C8'];
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end" role="presentation">
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-50 flex items-end" role="presentation">
       <button
         type="button"
         onClick={onClose}
@@ -40,15 +37,13 @@ export function ProductModal({ product, onClose, onAdd }) {
         className="absolute inset-0 bg-[#231D18]/60 backdrop-blur-sm w-full h-full cursor-default transition-opacity duration-300"
       />
 
-      {/* Drawer Panel */}
       <aside
         role="dialog"
         aria-modal="true"
         aria-label={`Olhar rápido: ${product.name}`}
-        className="relative z-10 h-full w-full max-w-[860px] bg-[#FAF8F5] shadow-2xl overflow-y-auto animate-panel flex flex-col"
+        className="relative z-10 w-full max-h-[90vh] md:max-h-full bg-[#FAF8F5] shadow-2xl overflow-hidden animate-panel flex flex-col md:flex-row md:h-full md:max-w-[860px]"
       >
-        {/* Sticky Header */}
-        <div className="sticky top-0 z-20 flex justify-between items-center h-16 px-6 md:px-9 border-b border-[#DFDCDA] bg-[#FAF8F5]/95 backdrop-blur-md">
+        <div className="sticky top-0 z-20 flex justify-between items-center h-16 px-4 md:px-6 border-b border-[#DFDCDA] bg-[#FAF8F5]/95 backdrop-blur-md">
           <span className="eyebrow text-[#9B7C55]">
             Olhar rápido / Célli Maison
           </span>
@@ -63,25 +58,22 @@ export function ProductModal({ product, onClose, onAdd }) {
           </button>
         </div>
 
-        {/* Content Body */}
-        <div className="grid md:grid-cols-[0.95fr_1fr] gap-8 md:gap-10 p-6 md:p-9 flex-1">
-          {/* Gallery Column */}
-          <div className="md:sticky md:top-20 md:self-start">
-            <div className="aspect-[0.85] bg-[#EAE6E0] overflow-hidden shadow-sm rounded-sm mb-3">
+        <div className="flex-1 overflow-y-auto p-4 md:p-6 md:grid md:grid-cols-[0.95fr_1fr] md:gap-8 md:gap-10 flex flex-col">
+          <div className="md:sticky md:top-20 md:self-start mb-4 md:mb-0">
+            <div className="aspect-[0.85] bg-[#EAE6E0] overflow-hidden shadow-sm rounded-sm">
               <Carousel items={product.images} alt={product.name} />
             </div>
           </div>
 
-          {/* Details Column */}
           <div className="py-2 flex flex-col justify-between">
             <div>
               <span className="eyebrow text-[#9B7C55]">
                 {product.mood} / {product.category}
               </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95] mt-4 font-light text-[#231D18]">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[0.95] mt-4 font-light text-[#231D18]">
                 {product.name}
               </h2>
-              <p className="mt-5 text-xl font-mono text-[#6C5033]">
+              <p className="mt-4 text-lg md:text-xl font-mono text-[#6C5033]">
                 R$ {formatPrice(product.price)}
               </p>
 
@@ -91,7 +83,6 @@ export function ProductModal({ product, onClose, onAdd }) {
                 {product.description}
               </p>
 
-              {/* Sizes / Options */}
               <div className="mt-8">
                 <h3 className="eyebrow text-[#9B7C55] mb-3">
                   {product.category === 'pijamas' ? 'Escolha seu tamanho' : 'Apresentação'}
@@ -115,7 +106,6 @@ export function ProductModal({ product, onClose, onAdd }) {
                 </div>
               </div>
 
-              {/* Composition */}
               <div className="border-t border-[#DFDCDA] pt-6 mt-8">
                 <h3 className="eyebrow text-[#9B7C55] mb-2">Composição & detalhes</h3>
                 <p className="text-sm leading-relaxed text-[#635A52] font-light">
@@ -123,7 +113,6 @@ export function ProductModal({ product, onClose, onAdd }) {
                 </p>
               </div>
 
-              {/* Olfactory Pyramid (Interactive Fragrance Notes) */}
               {product.notes && (
                 <div className="border-t border-[#DFDCDA] pt-6 mt-7">
                   <h3 className="font-display text-2xl mb-3 text-[#231D18]">
@@ -162,8 +151,7 @@ export function ProductModal({ product, onClose, onAdd }) {
               )}
             </div>
 
-            {/* Add to Cart Actions */}
-            <div className="pt-8">
+            <div className="pt-8 mt-auto">
               <button
                 type="button"
                 onClick={() => onAdd(product, selectedSize)}

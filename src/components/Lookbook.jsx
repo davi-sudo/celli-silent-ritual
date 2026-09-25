@@ -4,7 +4,7 @@ import { Carousel } from './Carousel';
 
 export function Lookbook() {
   return (
-    <section id="lookbook" className="py-24 md:py-36 bg-[#FAF8F5] overflow-hidden scroll-mt-20">
+    <section id="lookbook" className="py-24 md:py-36 bg-[#FAF8F5] overflow-hidden scroll-mt-16 md:scroll-mt-20">
       <div className="px-5 md:px-10 lg:px-16 flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12 reveal-on-scroll">
         <div>
           <p className="eyebrow text-[#9B7C55]">Fragmentos do cotidiano</p>
